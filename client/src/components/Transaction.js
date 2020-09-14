@@ -5,6 +5,7 @@ import { deleteTransaction } from "../actions/transactionAction";
 
 const Transaction = ({ transaction, deleteTransaction }) => {
   const sign = transaction.amount < 0 ? "-" : "+";
+
   return (
     <li className={sign === "-" ? "minus" : "plus"}>
       {transaction.text}
@@ -13,7 +14,7 @@ const Transaction = ({ transaction, deleteTransaction }) => {
         {Math.abs(transaction.amount)}$
       </span>
       <button
-        onClick={e => deleteTransaction(transaction._id)}
+        onClick={e => deleteTransaction(transaction.id || transaction._id)}
         className="delete-btn"
       >
         x

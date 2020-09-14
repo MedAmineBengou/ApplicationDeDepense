@@ -24,11 +24,13 @@ const AddTransaction = ({ addTransaction }) => {
         <div className="form-control">
           <label htmlFor="text">Nom</label>
           <input
+            className="input-fields"
             type="text"
             id="text"
             placeholder="Enter text..."
             value={text}
             onChange={e => setText(e.target.value)}
+            required
           />
         </div>
         <div className="form-control">
@@ -37,6 +39,7 @@ const AddTransaction = ({ addTransaction }) => {
             (Négatif si c'est une dépense, positive si un encaissement)
           </label>
           <input
+            className="input-fields"
             type="number"
             id="amount"
             placeholder="Enter amount..."

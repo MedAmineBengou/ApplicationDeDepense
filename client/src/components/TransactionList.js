@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getTransactions } from "../actions/transactionAction";
 import PropTypes from "prop-types";
 import Transaction from "./Transaction";
+import Spinner from "./Spinner";
 
 export const TransactionList = ({ getTransactions, transaction }) => {
   useEffect(() => {
@@ -13,15 +14,16 @@ export const TransactionList = ({ getTransactions, transaction }) => {
     <>
       <h3>Historique</h3>
       <ul id="list" className="list">
-        {transaction.transactions.length === 0 && (
-          <span>Pas de Transactions pour le moment</span>
+        {transaction.loading ? (
+          <Spinner />
+        ) : (
+          transaction.transactions.map(transaction => (
+            <Transaction
+              transaction={transaction}
+              key={transaction._id || transaction.id}
+            />
+          ))
         )}
-        {transaction.transactions.map(transaction => (
-          <Transaction
-            transaction={transaction}
-            key={transaction._id || transaction.id}
-          />
-        ))}
       </ul>
     </>
   );

@@ -7,7 +7,6 @@ const Balance = ({ getTransactions, transaction }) => {
   useEffect(() => {
     getTransactions();
   }, [getTransactions]);
-
   const amounts = transaction.transactions.map(
     transaction => transaction.amount
   );
