@@ -10,7 +10,7 @@
     "dev": "concurrently \"npm run start \" \" npm run client\""
   },
   "keywords": [],
-  "author": "",
+  "author": "Amine",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
